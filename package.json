@@ -1,0 +1,22 @@
+{
+  "name": "jaimesimeonpalomarblumenthal",
+  "version": "1.0.0",
+  "description": "My personal webpage",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpalomarbl/jaimeSimeonPalomarBlumenthal.git"
+  },
+  "author": "Jaime Simeón Palomar Blumenthal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpalomarbl/jaimeSimeonPalomarBlumenthal/issues"
+  },
+  "homepage": "https://github.com/jpalomarbl/jaimeSimeonPalomarBlumenthal#readme",
+  "dependencies": {
+    "vanilla-tilt": "^1.8.1"
+  }
+}

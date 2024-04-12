@@ -1,0 +1,64 @@
+body {
+  background-image: url(./assets/img/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+div.container {
+    height: 200vh;
+    width: 20vw;
+    background-color: white;
+}
+
+/* BACKGROUND ANIMATION */
+div.glass-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  z-index: -1;
+}
+
+div.glass {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(19, 24, 97, 0.37);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  animation-name: moveInRandomDirection;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+div#glass-container-outside > div.glass {
+      animation-direction: alternate-reverse;
+}
+
+div#glass-container-inside > div.glass {
+      animation-direction: alternate;
+}
+
+@-webkit-keyframes moveInRandomDirection {
+  0% {
+    transform: translate(0, 0) rotate3d(1, 1, 1, var(--random-angle));;
+  }
+  100% {
+    transform: translate(
+        calc(100vw * var(--random-x)),
+        calc(100vh * var(--random-y))
+      )
+      rotate3d(1, 1, 1, 360deg);;
+  }
+}
