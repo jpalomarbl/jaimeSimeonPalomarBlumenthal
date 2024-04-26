@@ -1,20 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simeón Palomar</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="glass-container" id="glass-container-outside"></div>
     <div class="glass-container" id="glass-container-inside"></div>
 
-    <!-- <div class="container">
-        HOLA
-    </div> -->
-    
-    <script src="script.js"></script>
-</body>
+    <div class="titleContainer">
+      <h1>Simeón's personal website</h1>
+      <h1>Simeón's personal website</h1>
+    </div>
+
+    <div class="container">
+      <div data-tilt id="pros" class="card draggable">
+        <img class="main-img" src="img/pros.svg" alt="Winking smilly face" />
+
+        <h2>What am I good at?</h2>
+        <img class="down-arrow" src="img/down-arrow.svg" alt="Down arrow" />
+        <div class="content">
+          <p>
+            I consider myself a very good team worker and a very innovative
+            person, who's able to find alternate solutions to problems.
+          </p>
+          <p>
+            I also think of myself as a creative person, because I always try
+            new methods when facing designs, cooking recipies, making music,
+            etc.
+          </p>
+        </div>
+      </div>
+
+      <div data-tilt id="tools" class="card draggable">
+        <img class="main-img" src="img/tools.svg" alt="Winking smilly face" />
+        <h2>The tools I know</h2>
+        <img class="down-arrow" src="img/down-arrow.svg" alt="Down arrow" />
+        <div class="content">
+          <p>
+            As an IT Engineer, I'm able to quickly learn any new technologies or
+            tools that I might need to use.
+          </p>
+          <p>
+            But as today, I'm proficient in Front End Web Development, so I know
+            my way in HTML5, CSS3, JavaScript, TypeScript and PHP. And as far as
+            frameworks are concerned, I've developed websites using Vue2 and
+            Vue3, React, Drupal and Laravel.
+          </p>
+        </div>
+      </div>
+
+      <div data-tilt id="studies" class="card draggable">
+        <img class="main-img" src="img/studies.svg" alt="Winking smilly face" />
+        <h2>My studies</h2>
+        <img class="down-arrow" src="img/down-arrow.svg" alt="Down arrow" />
+        <div class="content">
+          <ul>
+            <li>
+              IT Engineering Degree at the University of La Laguna (2018 - 2023)
+            </li>
+            <li>
+              Websites and Web Applications Development Master's Degree at the
+              Online University of Catalonia (2023 - now)
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+      integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+  </body>
 </html>

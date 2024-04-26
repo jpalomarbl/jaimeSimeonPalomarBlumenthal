@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/jpalomarbl/jaimeSimeonPalomarBlumenthal#readme",
   "dependencies": {
-    "vanilla-tilt": "^1.8.1"
+    "vanilla-i18n": "^1.0.8"
   }
 }
