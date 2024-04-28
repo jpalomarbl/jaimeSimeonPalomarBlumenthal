@@ -86,12 +86,26 @@ function dragMoveListener(event) {
 const pros = document.getElementById("pros");
 const tools = document.getElementById("tools");
 const studies = document.getElementById("studies");
+const mainContainer = document.querySelector(".container");
+const titleContainer = document.querySelector("#titleContainer");
 
 const cardArray = [pros, tools, studies];
 
-cardArray.forEach((card) => {
+cardArray.forEach((card, index) => {
+  card.addEventListener("click", () => {
+    mainContainer.classList.add("display-info");
+    titleContainer.classList.add("display-info");
+
+    cardArray.forEach((card_item, index_item) => {
+      if (index_item === index) {
+        card_item.classList.add("active");
+      } else {
+        card_item.classList.remove("active");
+      }
+    });
+  });
+
   card.addEventListener("mousedown", (event) => {
-    console.log(event);
     card.vanillaTilt.destroy();
   });
 

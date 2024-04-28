@@ -6,11 +6,7 @@
 }
 
 body {
-  background-image: url(./assets/img/background.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+  background-color: #0d3b66;
 
   display: flex;
   flex-direction: column;
@@ -20,7 +16,43 @@ body {
   min-height: 100vh;
 }
 
-div.titleContainer {
+/* BACKGROUND */
+
+body::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(326deg, #fa6b47, #f4d35e);
+
+  clip-path: polygon(24% 33%, 0 0, 100% 0);
+
+  z-index: 1;
+}
+
+body::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(326deg, #1ccad8, #faf0ca);
+
+  clip-path: polygon(71% 59%, 0% 100%, 100% 100%);
+
+  z-index: 0;
+}
+
+/* TITLE */
+
+div#titleContainer {
   position: relative;
 
   width: 80vw;
@@ -30,16 +62,14 @@ div.titleContainer {
   justify-content: center;
   align-items: center;
 
-  /* background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  border-radius: 10px; */
+  overflow: hidden;
 
   z-index: 5;
+
+  animation: open-title 1.5s ease-in;
 }
 
-div.titleContainer > h1 {
+div#titleContainer > h1 {
   font-family: "poppins", sans-serif;
   font-weight: 700;
   font-size: 5vw;
@@ -49,16 +79,18 @@ div.titleContainer > h1 {
   margin: auto;
 }
 
-div.titleContainer h1:nth-child(1) {
+div#titleContainer h1:nth-child(1) {
   color: transparent;
   -webkit-text-stroke: 2px white;
   z-index: 6;
 }
 
-div.titleContainer h1:nth-child(2) {
+div#titleContainer h1:nth-child(2) {
   color: white;
-  animation: waterFlow 4s ease-in-out infinite;
+  animation: waterFlow 6s ease-in-out infinite;
 }
+
+/* CONTAINER ELEMENTS (NON-ACTIVE) */
 
 div.container {
   position: relative;
@@ -84,10 +116,11 @@ div.container > div.card {
   padding: 1rem;
 
   background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(19, 23, 82, 0.37);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  border-radius: 10px;
+
+  border-radius: 5px;
 
   transform-style: preserve-3d;
   perspective: 700px;
@@ -154,6 +187,16 @@ div.container > div.card:hover > img.down-arrow {
   animation: mover-arriba-abajo 0.8s infinite;
 }
 
+/* CONTAINER ELEMENTS (ACTIVE) */
+div.container > div.active {
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 white;
+}
+
 /* BACKGROUND ANIMATION */
 div.glass-container {
   position: fixed;
@@ -169,7 +212,9 @@ div.glass-container {
 div.glass {
   position: absolute;
   width: 40px;
-  height: 20px;
+  height: 40px;
+
+  clip-path: polygon(79% 0, 0 89%, 76% 100%);
 
   /* Glass effect */
   background: rgba(255, 255, 255, 0.25);
@@ -191,6 +236,8 @@ div#glass-container-outside > div.glass {
 div#glass-container-inside > div.glass {
   animation-direction: alternate;
 }
+
+/* ANIMATIONS */
 
 @-webkit-keyframes moveInRandomDirection {
   0% {
@@ -234,11 +281,11 @@ div#glass-container-inside > div.glass {
       100% 100%,
       0 100%
     );
-    color: white;
+    color: rgba(250, 240, 202, 0.7);
   }
 
   33% {
-    color: #eec55f;
+    color: rgba(244, 211, 94);
   }
 
   50% {
@@ -259,37 +306,15 @@ div#glass-container-inside > div.glass {
   }
 
   66% {
-    color: #46a8cc;
+    color: rgba(28, 202, 216);
   }
 }
 
-/* @-webkit-keyframes animate {
-  0%,
-  100% {
-    clip-path: polygon(
-      0% 45%,
-      16% 44%,
-      33% 50%,
-      54% 60%,
-      70% 61%,
-      84% 59%,
-      100% 52%,
-      100% 100%,
-      0% 100%
-    );
+@-webkit-keyframes open-title {
+  from {
+    height: 0vh;
   }
-
-  50% {
-    clip-path: polygon(
-      0% 60%,
-      15% 65%,
-      34% 66%,
-      51% 62%,
-      67% 50%,
-      84% 45%,
-      100% 46%,
-      100% 100%,
-      0% 100%
-    );
+  to {
+    height: 15vh;
   }
-} */
+}
