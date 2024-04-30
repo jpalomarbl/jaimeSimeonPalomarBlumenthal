@@ -12,6 +12,21 @@ const studies = document.getElementById("studies");
 const notInitials = document.querySelectorAll("h1:not(.initials)");
 const initials = document.querySelector("h1.initials");
 
+const info = {
+  pros: [
+    "I consider myself a very good team worker and a very innovative person, who's able to find alternate solutions to problems.",
+    "I also think of myself as a creative person, because I always try new methods when facing designs, cooking recipies, making music, etc.",
+  ],
+  tools: [
+    "As an IT Engineer, I'm able to quickly learn any new technologies or tools that I might need to use.",
+    "But as today, I'm proficient in Front End Web Development, so I know my way in HTML5, CSS3, JavaScript, TypeScript and PHP. And as far as frameworks are concerned, I've developed websites using Vue2 and Vue3, React, Drupal and Laravel.",
+  ],
+  studies: [
+    "IT Engineering Degree at the University of La Laguna (2018 - 2023)",
+    "Websites and Web Applications Development Master's Degree at the Online University of Catalonia (2023 - now)",
+  ]
+};
+
 // GLOBAL FUNCTION CALLS
 glasssGenerator();
 resetClasses();
@@ -116,7 +131,7 @@ cardArray.forEach((card, index) => {
       titleContainer.classList.add("timeOut-css");
 
       notInitials.forEach((notInitial) => {
-        notInitial.style = "display: none;"
+        notInitial.style = "display: none;";
       });
 
       initials.style = "display: block;";
