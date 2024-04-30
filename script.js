@@ -3,12 +3,25 @@ const glassContainerOutside = document.getElementById(
   "glass-container-outside"
 );
 const glassContainerInside = document.getElementById("glass-container-inside");
-const container = document.querySelector(".container");
+const mainContainer = document.getElementById("main-container");
+const titleContainer = document.getElementById("title-container");
+const pros = document.getElementById("pros");
+const tools = document.getElementById("tools");
+const studies = document.getElementById("studies");
+
+const notInitials = document.querySelectorAll("h1:not(.initials)");
+const initials = document.querySelector("h1.initials");
 
 // GLOBAL FUNCTION CALLS
 glasssGenerator();
+resetClasses();
 
 // FUNCTION DECLARATIONS
+function resetClasses() {
+  mainContainer.classList.remove("display-info");
+  titleContainer.classList.remove("display-info");
+}
+
 function glasssGenerator() {
   let scrollHeight = Math.max(
     glassContainerOutside.scrollHeight,
@@ -83,18 +96,12 @@ function dragMoveListener(event) {
 }
 
 // EVENTS
-const pros = document.getElementById("pros");
-const tools = document.getElementById("tools");
-const studies = document.getElementById("studies");
-const mainContainer = document.querySelector(".container");
-const titleContainer = document.querySelector("#titleContainer");
-
 const cardArray = [pros, tools, studies];
 
 cardArray.forEach((card, index) => {
   card.addEventListener("click", () => {
-    mainContainer.classList.add("display-info");
     titleContainer.classList.add("display-info");
+    mainContainer.classList.add("display-info");
 
     cardArray.forEach((card_item, index_item) => {
       if (index_item === index) {
@@ -103,6 +110,17 @@ cardArray.forEach((card, index) => {
         card_item.classList.remove("active");
       }
     });
+
+    setTimeout(() => {
+      mainContainer.classList.add("timeOut-css");
+      titleContainer.classList.add("timeOut-css");
+
+      notInitials.forEach((notInitial) => {
+        notInitial.style = "display: none;"
+      });
+
+      initials.style = "display: block;";
+    }, 2800);
   });
 
   card.addEventListener("mousedown", (event) => {
