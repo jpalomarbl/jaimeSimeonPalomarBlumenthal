@@ -8,9 +8,9 @@ const titleContainer = document.getElementById("title-container");
 const pros = document.getElementById("pros");
 const tools = document.getElementById("tools");
 const studies = document.getElementById("studies");
-
 const notInitials = document.querySelectorAll("h1:not(.initials)");
 const initials = document.querySelector("h1.initials");
+const infoParagraphs = document.querySelectorAll("div#main-container > section#info > div.text > p");
 
 const info = {
   pros: [
@@ -32,6 +32,12 @@ glasssGenerator();
 resetClasses();
 
 // FUNCTION DECLARATIONS
+function populateInfoParagraphs(id) {
+  infoParagraphs.forEach((paragraph, index) => {
+    paragraph.innerText = info[id][index];
+  });
+}
+
 function resetClasses() {
   mainContainer.classList.remove("display-info");
   titleContainer.classList.remove("display-info");
@@ -117,6 +123,8 @@ cardArray.forEach((card, index) => {
   card.addEventListener("click", () => {
     titleContainer.classList.add("display-info");
     mainContainer.classList.add("display-info");
+
+    populateInfoParagraphs(card.id);
 
     cardArray.forEach((card_item, index_item) => {
       if (index_item === index) {

@@ -111,7 +111,8 @@ div#title-container h1:nth-child(1) {
 
 div#title-container h1:nth-child(2) {
   color: white;
-  animation: waterFlow 6s ease-in-out infinite;
+  animation: waterFlow 6s ease-in-out infinite,
+    waterFlow-color 6s ease-in-out infinite;
 }
 
 /* CONTAINER ELEMENTS (NOT "display-info") */
@@ -125,7 +126,7 @@ div#main-container {
   flex-wrap: wrap;
   justify-content: center;
 
-  max-width: 80vw;
+  width: 80vw;
 
   transition: height 3s linear;
 
@@ -211,7 +212,7 @@ div#main-container > div.card > img.down-arrow {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  animation: mover-arriba-abajo 2s infinite;
+  animation: up-down 2s infinite;
 
   transition: all 0.3s ease-in-out;
 }
@@ -221,7 +222,7 @@ div#main-container > div.card:hover > img.down-arrow {
 
   top: 93%;
 
-  animation: mover-arriba-abajo 0.8s infinite;
+  animation: up-down 0.8s infinite;
 }
 
 div#main-container > section#info {
@@ -237,11 +238,16 @@ div#main-container > section#info {
 
   transition: all 1s ease-in-out;
   /* Shenanigans and mischiefs end here */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  column-gap: 2vw;
 
   width: 80vw;
 
-  margin: 2rem;
-  padding: 1rem;
+  margin: 1rem 2rem;
+  padding: 3rem 3rem 3rem 1rem;
 
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(19, 23, 82, 0.37);
@@ -249,16 +255,69 @@ div#main-container > section#info {
   -webkit-backdrop-filter: blur(3px);
 
   border-radius: 5px;
+
+  color: white;
 }
 
 div#main-container > section#info > div.img-card {
-  width: 20%;
+  grid-column: span 1;
+  grid-row: span 2;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+div#main-container > section#info > div.text {
+  grid-column: span 2;
+}
+
+div#main-container > section#info > div.text > p {
+  margin: 1rem;
 }
 
 div#main-container > section#info > div.img-card > img {
-  width: 20%;
+  width: 80%;
+
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border-radius: 5px;
+
+  animation: up-down-img 3s ease-in-out infinite;
 }
 
+div#main-container > section#info > div.contact {
+  grid-column: span 2;
+  
+  padding: 1rem;
+  margin: 1rem;
+
+  height: fit-content;
+  width: 60%;
+
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+    animation: border-color 3s ease-in-out infinite;
+
+  z-index: 5;
+}
+
+div#main-container > section#info > div.contact:hover > a {
+  font-weight: 700;
+}
+
+div#main-container > section#info > div.contact > a {
+  color: rgba(244, 211, 94, 0.7);
+
+  text-decoration: none;
+
+  animation: waterFlow-color 3s ease-in-out infinite;
+}
 
 /* TITLE ("display-info") */
 div#title-container.display-info {
@@ -290,8 +349,8 @@ div#title-container.timeOut-css {
 /* CONTAINER ELEMENTS ("display-info") */
 div#main-container.timeOut-css {
   /* After 3000ms */
-  
-  height: 90vh;
+
+  height: 85vh;
 
   align-content: start;
 }
@@ -398,7 +457,7 @@ div#glass-container-inside > div.glass {
   }
 }
 
-@-webkit-keyframes mover-arriba-abajo {
+@-webkit-keyframes up-down {
   0% {
     transform: translate(-50%, -50%);
   }
@@ -407,6 +466,20 @@ div#glass-container-inside > div.glass {
   }
   100% {
     transform: translate(-50%, -50%);
+  }
+}
+
+@-webkit-keyframes up-down-img {
+  0% {
+    transform: translateY(-1%);
+  }
+
+  50% {
+    transform: translateY(+1%);
+  }
+
+  100% {
+    transform: translateY(-1%);
   }
 }
 
@@ -427,13 +500,7 @@ div#glass-container-inside > div.glass {
       100% 100%,
       0 100%
     );
-    color: rgba(250, 240, 202, 0.7);
   }
-
-  33% {
-    color: rgba(244, 211, 94);
-  }
-
   50% {
     clip-path: polygon(
       0 64%,
@@ -450,11 +517,21 @@ div#glass-container-inside > div.glass {
       0 100%
     );
   }
+}
 
+@-webkit-keyframes waterFlow-color {
+  0%,
+  100% {
+    color: rgba(250, 240, 202, 0.7);
+  }
+  33% {
+    color: rgba(244, 211, 94, 0.7);
+  }
   66% {
-    color: rgba(28, 202, 216);
+    color: rgba(28, 202, 216, 0.7);
   }
 }
+
 @-webkit-keyframes waterFlowInitials {
   0%,
   100% {
@@ -631,5 +708,18 @@ div#glass-container-inside > div.glass {
 
   100% {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes border-color {
+  0%,
+  100% {
+    box-shadow: 0 8px 32px 0 rgba(250, 240, 202, 0.37);
+  }
+  33% {
+    box-shadow: 0 8px 32px 0 rgba(244, 211, 94, 0.37);
+  }
+  66% {
+    box-shadow: 0 8px 32px 0 rgba(244, 211, 94, 0.37);
   }
 }
