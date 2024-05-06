@@ -77,45 +77,6 @@ function glasssGenerator() {
   }
 }
 
-// INTERACTJS
-interact(".draggable").draggable({
-  inertia: false,
-  modifiers: [
-    interact.modifiers.restrictRect({
-      endOnly: true,
-    }),
-  ],
-  autoScroll: true,
-  listeners: {
-    move: dragMoveListener,
-    end: function (event) {
-      event.target.style.transform = "none";
-      event.target.setAttribute("data-x", 0);
-      event.target.setAttribute("data-y", 0);
-    },
-  },
-});
-
-interact(".draggable").styleCursor(false);
-
-interact(".draggable").on("dragstart", (event) => {
-  console.log(event);
-});
-
-function dragMoveListener(event) {
-  var target = event.target;
-  // keep the dragged position in the data-x/data-y attributes
-  var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
-  var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
-
-  // translate the element
-  target.style.transform = "translate(" + x + "px, " + y + "px)";
-
-  // update the posiion attributes
-  target.setAttribute("data-x", x);
-  target.setAttribute("data-y", y);
-}
-
 // EVENTS
 const cardArray = [pros, tools, studies];
 
@@ -144,13 +105,5 @@ cardArray.forEach((card, index) => {
 
       initials.style = "display: block;";
     }, 2800);
-  });
-
-  card.addEventListener("mousedown", (event) => {
-    card.vanillaTilt.destroy();
-  });
-
-  card.addEventListener("mouseup", () => {
-    VanillaTilt.init(card);
   });
 });
