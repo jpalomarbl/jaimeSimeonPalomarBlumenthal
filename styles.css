@@ -66,7 +66,7 @@ div#title-container {
 
   z-index: 5;
 
-  animation: open-title 3s ease-in;
+  /* animation: open-title 3s ease-in; */
 
   transition: all 500ms ease-in-out;
 }
@@ -161,7 +161,7 @@ div#main-container > div.card {
   color: white;
 }
 
-div#main-container > div.card:nth-child(1) {
+/* div#main-container > div.card:nth-child(1) {
   animation: appear-card-1 4s ease-in;
 }
 
@@ -171,7 +171,7 @@ div#main-container > div.card:nth-child(2) {
 
 div#main-container > div.card:nth-child(3) {
   animation: appear-card-3 6s ease-in;
-}
+} */
 
 div#main-container > div.card > img.main-img {
   z-index: 1;
