@@ -10,7 +10,13 @@ const tools = document.getElementById("tools");
 const studies = document.getElementById("studies");
 const notInitials = document.querySelectorAll("h1:not(.initials)");
 const initials = document.querySelector("h1.initials");
-const infoParagraphs = document.querySelectorAll("div#main-container > section#info > div.text > p");
+const infoParagraphs = document.querySelectorAll(
+  "div#main-container > section#info > div.text > p"
+);
+const cardHeaders = document.querySelectorAll(
+  "div#main-container > div.card > h2"
+);
+const contactLink = document.getElementById("contact");
 
 const info = {
   pros: [
@@ -24,18 +30,35 @@ const info = {
   studies: [
     "IT Engineering Degree at the University of La Laguna (2018 - 2023)",
     "Websites and Web Applications Development Master's Degree at the Online University of Catalonia (2023 - now)",
-  ]
+  ],
 };
 
 // GLOBAL FUNCTION CALLS
 glasssGenerator();
 resetClasses();
+changeTexts();
 
 // FUNCTION DECLARATIONS
 function populateInfoParagraphs(id) {
   infoParagraphs.forEach((paragraph, index) => {
     paragraph.innerText = info[id][index];
   });
+}
+
+function changeTexts() {
+  if (window.innerWidth < 1000) {
+    cardHeaders[0].innerText = "Pros";
+    cardHeaders[1].innerText = "Tools";
+    cardHeaders[2].innerText = "Studies";
+
+    contactLink.innerText = "Click to send an email";
+  } else {
+    cardHeaders[0].innerText = "What am I good at?";
+    cardHeaders[1].innerText = "The tools I know";
+    cardHeaders[2].innerText = "My studies";
+
+    contactLink.innerText = "palomarblumenthaljaimesimeon@gmail";
+  }
 }
 
 function resetClasses() {
@@ -95,15 +118,23 @@ cardArray.forEach((card, index) => {
       }
     });
 
-    setTimeout(() => {
+    if (window.innerWidth > 1000) {
+      setTimeout(() => {
+        mainContainer.classList.add("timeOut-css");
+        titleContainer.classList.add("timeOut-css");
+
+        notInitials.forEach((notInitial) => {
+          notInitial.style = "display: none;";
+        });
+        initials.style = "display: block;";
+      }, 2800);
+    } else {
       mainContainer.classList.add("timeOut-css");
-      titleContainer.classList.add("timeOut-css");
+      titleContainer.classList.add("timeOut-css-mobile");
 
-      notInitials.forEach((notInitial) => {
-        notInitial.style = "display: none;";
-      });
-
-      initials.style = "display: block;";
-    }, 2800);
+      document.body.className = "mobile";
+    }
   });
 });
+
+window.addEventListener("resize", changeTexts);

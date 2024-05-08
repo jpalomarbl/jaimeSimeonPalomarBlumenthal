@@ -115,8 +115,34 @@ div#title-container h1:nth-child(2) {
     waterFlow-color 6s ease-in-out infinite;
 }
 
-/* CONTAINER ELEMENTS (NOT "display-info") */
+/* TITLE ("display-info") */
+div#title-container.display-info {
+  animation: close-title 3s ease-in;
+}
 
+div#title-container > h1.initials {
+  display: none;
+
+  color: white;
+
+  font-size: 3rem;
+
+  font-weight: 300;
+}
+
+div#title-container.timeOut-css {
+  /* After 2800ms */
+  height: 10vh;
+  width: 10vw;
+
+  margin: 1rem;
+
+  align-self: center;
+
+  animation: open-title-initials 1.5s ease-in;
+}
+
+/* CONTAINER ELEMENTS (NOT "display-info") */
 div#main-container {
   position: relative;
 
@@ -288,7 +314,7 @@ div#main-container > section#info > div.img-card > img {
 
 div#main-container > section#info > div.contact {
   grid-column: span 2;
-  
+
   padding: 1rem;
   margin: 1rem;
 
@@ -302,7 +328,7 @@ div#main-container > section#info > div.contact {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 
-    animation: border-color 3s ease-in-out infinite;
+  animation: border-color 3s ease-in-out infinite;
 
   z-index: 5;
 }
@@ -312,38 +338,11 @@ div#main-container > section#info > div.contact:hover > a {
 }
 
 div#main-container > section#info > div.contact > a {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1); 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
 
   text-decoration: none;
 
   animation: waterFlow-color 3s ease-in-out infinite;
-}
-
-/* TITLE ("display-info") */
-div#title-container.display-info {
-  animation: close-title 3s ease-in;
-}
-
-div#title-container > h1.initials {
-  display: none;
-
-  color: white;
-
-  font-size: 3rem;
-
-  font-weight: 300;
-}
-
-div#title-container.timeOut-css {
-  /* After 3000ms */
-  height: 10vh;
-  width: 10vw;
-
-  margin: 1rem;
-
-  align-self: center;
-
-  animation: open-title-initials 1.5s ease-in;
 }
 
 /* CONTAINER ELEMENTS ("display-info") */
@@ -442,8 +441,163 @@ div#glass-container-inside > div.glass {
   animation-direction: alternate;
 }
 
-/* ANIMATIONS */
+/* MEDIA QUERIES */
+@media screen and (max-width: 1000px) {
+  body {
+    justify-content: center;
+  }
 
+  body.mobile {
+    justify-content: start;
+  }
+
+  /* TITLE (NOT "display-info") */
+  div#title-container {
+    height: 12vh;
+
+    /* margin-top: 10vh; */
+    margin-bottom: 2vh;
+
+    animation: open-title-mobile 3s ease-in;
+  }
+
+  div#title-container > h1 {
+    font-size: 2rem;
+    font-weight: 300;
+
+    text-align: center;
+  }
+
+  div#title-container > h1::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 3px;
+
+    background: white;
+
+    animation: waterFlowInitials 6s ease-in-out infinite;
+
+    z-index: -1;
+  }
+
+  div#title-container h1:nth-child(1) {
+    color: white;
+  }
+
+  div#title-container h1:nth-child(2) {
+    display: none;
+  }
+
+  div#title-container > h1 > span.initials {
+    font-size: 3rem;
+
+    font-weight: 500;
+    line-height: 1rem;
+
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+  }
+
+  /* TITLE ("display-info") */
+  div#title-container.timeOut-css-mobile {
+    margin-top: 3vh;
+  }
+
+  div#title-container.display-info {
+    animation: none;
+  }
+
+  /* CONTAINER ELEMENTS (NOT "display-info") */
+  div#main-container > div.card {
+    margin: 0;
+
+    height: 10vh;
+
+    border-radius: 3px;
+  }
+
+  div#main-container > div.card:nth-child(2) {
+    margin: 0 1rem 0;
+  }
+
+  div#main-container > div.card > img.main-img {
+    width: 150%;
+  }
+
+  div#main-container > div.card:nth-child(3) > img.main-img {
+    width: 200%;
+  }
+
+  div#main-container > div.card > h2 {
+    font-size: 1.3rem;
+
+    top: 60%;
+  }
+
+  div#main-container > div.card > img.down-arrow {
+    width: 1.2rem;
+
+    top: 85%;
+  }
+
+  div#main-container > div.card:hover > img.down-arrow {
+    width: 1.3rem;
+
+    top: 88%;
+
+    animation: up-down 1s infinite;
+  }
+
+  /* CONTAINER ELEMENTS ("display-info") */
+  div#main-container.display-info > div.card > img.main-img {
+    width: 150%;
+  }
+
+  div#main-container.display-info > div.card:nth-child(3) > img.main-img {
+    width: 200%;
+  }
+
+  div#main-container > section#info {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    align-items: center;
+
+    margin: 1rem 0;
+    padding: 2rem 1rem 1rem;
+  }
+
+  div#main-container > section#info > div.text > p {
+    line-height: 1.4rem;
+    text-align: justify;
+  }
+
+  div#main-container > section#info > div.img-card {
+    margin: 0 0 1rem;
+  }
+
+  div#main-container > section#info > div.img-card > img {
+    width: 60%;
+  }
+
+  div#main-container > section#info > div.contact {
+    padding: 1rem;
+    margin: auto;
+    width: auto;
+
+    height: fit-content;
+  }
+}
+
+/* ANIMATIONS */
 @-webkit-keyframes moveInRandomDirection {
   0% {
     transform: translate(0, 0) rotate3d(1, 1, 1, var(--random-angle));
@@ -480,6 +634,20 @@ div#glass-container-inside > div.glass {
 
   100% {
     transform: translateY(-1%);
+  }
+}
+
+@-webkit-keyframes up-down-cards-mobile {
+  0% {
+    transform: translateY(-5%);
+  }
+
+  50% {
+    transform: translateY(+5%);
+  }
+
+  100% {
+    transform: translateY(-5%);
   }
 }
 
@@ -597,6 +765,33 @@ div#glass-container-inside > div.glass {
 
   90% {
     height: 20vh;
+  }
+
+  100% {
+    border-top: 0px;
+    border-bottom: 0px;
+  }
+}
+
+@-webkit-keyframes open-title-mobile {
+  0% {
+    height: 0vh;
+    width: 0vw;
+
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+  }
+
+  50% {
+    width: 80vw;
+    height: 0vh;
+
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+  }
+
+  90% {
+    height: 12vh;
   }
 
   100% {
