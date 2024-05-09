@@ -35,10 +35,12 @@ const info = {
   ],
 };
 
+const mobileResolutionLimit = 1080;
+
 // GLOBAL FUNCTION CALLS
 glasssGenerator();
 resetClasses();
-changeTexts();
+mobileDesktopToggleSettings();
 
 // FUNCTION DECLARATIONS
 function populateInfoParagraphs(id) {
@@ -53,7 +55,7 @@ function mobileDesktopToggleSettings() {
 }
 
 function unableVanillaTilt() {
-  if (window.innerWidth < 1000) {
+  if (window.innerWidth < mobileResolutionLimit) {
     cardArray.forEach((card) => {
       card.vanillaTilt.destroy();
     });
@@ -65,7 +67,7 @@ function unableVanillaTilt() {
 }
 
 function changeTexts() {
-  if (window.innerWidth < 1000) {
+  if (window.innerWidth < mobileResolutionLimit) {
     cardHeaders[0].innerText = "Pros";
     cardHeaders[1].innerText = "Tools";
     cardHeaders[2].innerText = "Studies";
@@ -135,7 +137,7 @@ cardArray.forEach((card, index) => {
       }
     });
 
-    if (window.innerWidth > 1000) {
+    if (window.innerWidth > mobileResolutionLimit) {
       setTimeout(() => {
         mainContainer.classList.add("timeOut-css");
         titleContainer.classList.add("timeOut-css");
