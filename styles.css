@@ -442,7 +442,7 @@ div#glass-container-inside > div.glass {
 }
 
 /* MEDIA QUERIES */
-@media screen and (max-width: 1200px) and (min-width: 1001px) {
+@media screen and (max-width: 1200px) and (min-width: 1081px) {
   div#main-container > div.card {
     position: relative;
 
@@ -454,7 +454,7 @@ div#glass-container-inside > div.glass {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1080px) {
   body {
     justify-content: center;
   }
