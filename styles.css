@@ -74,7 +74,7 @@ div#title-container {
 div#title-container > h1 {
   font-family: "poppins", sans-serif;
   font-weight: 700;
-  font-size: 5rem;
+  font-size: 5vw;
 
   position: absolute;
 
@@ -98,7 +98,7 @@ div#title-container > h1.initials::before {
 }
 
 div#title-container > h1 > span.initials {
-  font-size: 7rem;
+  font-size: 7vw;
 
   font-weight: 300;
 }
@@ -216,7 +216,7 @@ div#main-container > div.card > h2 {
 
   width: 80%;
 
-  font-size: 1.8rem;
+  font-size: 1.8vw;
   text-align: center;
 
   transition: all 0.2s ease-in-out;
@@ -231,7 +231,7 @@ div#main-container > div.card:hover > h2 {
 }
 
 div#main-container > div.card > img.down-arrow {
-  width: 2.5rem;
+  width: 2.5vw;
 
   position: absolute;
   top: 90%;
@@ -244,7 +244,7 @@ div#main-container > div.card > img.down-arrow {
 }
 
 div#main-container > div.card:hover > img.down-arrow {
-  width: 2rem;
+  width: 2vw;
 
   top: 93%;
 
@@ -442,6 +442,18 @@ div#glass-container-inside > div.glass {
 }
 
 /* MEDIA QUERIES */
+@media screen and (max-width: 1200px) and (min-width: 1001px) {
+  div#main-container > div.card {
+    position: relative;
+
+    width: 28%;
+    height: 30vh;
+
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   body {
     justify-content: center;

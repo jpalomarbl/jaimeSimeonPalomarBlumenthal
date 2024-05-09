@@ -8,6 +8,8 @@ const titleContainer = document.getElementById("title-container");
 const pros = document.getElementById("pros");
 const tools = document.getElementById("tools");
 const studies = document.getElementById("studies");
+const cardArray = [pros, tools, studies];
+
 const notInitials = document.querySelectorAll("h1:not(.initials)");
 const initials = document.querySelector("h1.initials");
 const infoParagraphs = document.querySelectorAll(
@@ -43,6 +45,23 @@ function populateInfoParagraphs(id) {
   infoParagraphs.forEach((paragraph, index) => {
     paragraph.innerText = info[id][index];
   });
+}
+
+function mobileDesktopToggleSettings() {
+  changeTexts();
+  unableVanillaTilt();
+}
+
+function unableVanillaTilt() {
+  if (window.innerWidth < 1000) {
+    cardArray.forEach((card) => {
+      card.vanillaTilt.destroy();
+    });
+  } else {
+    cardArray.forEach((card) => {
+      VanillaTilt.init(card);
+    });
+  }
 }
 
 function changeTexts() {
@@ -101,8 +120,6 @@ function glasssGenerator() {
 }
 
 // EVENTS
-const cardArray = [pros, tools, studies];
-
 cardArray.forEach((card, index) => {
   card.addEventListener("click", () => {
     titleContainer.classList.add("display-info");
