@@ -59,10 +59,14 @@ function unableVanillaTilt() {
     cardArray.forEach((card) => {
       card.vanillaTilt.destroy();
     });
+
+    contactLink.parentElement.vanillaTilt.destroy();
   } else {
     cardArray.forEach((card) => {
       VanillaTilt.init(card);
     });
+
+    VanillaTilt.init(contactLink.parentElement);
   }
 }
 
@@ -72,7 +76,7 @@ function changeTexts() {
     cardHeaders[1].innerText = "Tools";
     cardHeaders[2].innerText = "Studies";
 
-    contactLink.innerText = "Click to send an email";
+    contactLink.innerText = "Tap to send an email";
   } else {
     cardHeaders[0].innerText = "What am I good at?";
     cardHeaders[1].innerText = "The tools I know";

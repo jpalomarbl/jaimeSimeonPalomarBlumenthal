@@ -349,7 +349,7 @@ div#main-container > section#info > div.contact > a {
 div#main-container.timeOut-css {
   /* After 3000ms */
 
-  height: 85vh;
+  height: 65vh;
 
   align-content: start;
 }
@@ -474,8 +474,9 @@ div#glass-container-inside > div.glass {
   }
 
   div#title-container > h1 {
-    font-size: 2rem;
+    font-size: 7vw;
     font-weight: 300;
+    line-height: 3rem;
 
     text-align: center;
   }
@@ -507,7 +508,7 @@ div#glass-container-inside > div.glass {
   }
 
   div#title-container > h1 > span.initials {
-    font-size: 3rem;
+    font-size: 12vw;
 
     font-weight: 500;
     line-height: 1rem;
@@ -547,13 +548,13 @@ div#glass-container-inside > div.glass {
   }
 
   div#main-container > div.card > h2 {
-    font-size: 1.3rem;
+    font-size: 5vw;
 
     top: 60%;
   }
 
   div#main-container > div.card > img.down-arrow {
-    width: 1.2rem;
+    width: 5vw;
 
     top: 85%;
   }
@@ -573,6 +574,105 @@ div#glass-container-inside > div.glass {
 
   div#main-container.display-info > div.card:nth-child(3) > img.main-img {
     width: 200%;
+  }
+
+  div#main-container > section#info {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    align-items: center;
+
+    margin: 1rem 0;
+    padding: 2rem 1rem 1rem;
+  }
+
+  div#main-container > section#info > div.text > p {
+    line-height: 1.4rem;
+    text-align: justify;
+  }
+
+  div#main-container > section#info > div.img-card {
+    margin: 0 0 1rem;
+  }
+
+  div#main-container > section#info > div.img-card > img {
+    width: 60%;
+  }
+
+  div#main-container > section#info > div.contact {
+    padding: 1rem;
+    margin: auto;
+    width: auto;
+
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* TITLE (NOT "display-info") */
+  div#title-container {
+    height: 14vh;
+  }
+
+  /* TITLE ("display-info") */
+  div#title-container.timeOut-css-mobile {
+    margin-top: 3vh;
+  }
+
+  div#title-container.display-info {
+    animation: none;
+  }
+
+  /* CONTAINER ELEMENTS (NOT "display-info") */
+  div#main-container > div.card,
+  div#main-container.display-info > div.card {
+    height: 6vh;
+    width: 29%;
+
+    padding: 0.5rem;
+  }
+
+  div#main-container > div.card:nth-child(2) {
+    margin: 0 1rem 0;
+  }
+
+  div#main-container > div.card > img.main-img {
+    width: 130%;
+  }
+
+  div#main-container > div.card:nth-child(3) > img.main-img {
+    width: 160%;
+  }
+
+  /* div#main-container > div.card > h2 {
+    font-size: 1.3rem;
+
+    top: 60%;
+  } */
+
+  div#main-container > div.card > img.down-arrow {
+    width: 3.5vw;
+
+    top: 85%;
+  }
+
+  div#main-container > div.card:hover > img.down-arrow {
+    width: 1.3rem;
+
+    top: 88%;
+
+    animation: up-down 1s infinite;
+  }
+
+  /* CONTAINER ELEMENTS ("display-info") */
+  div#main-container.display-info > div.card > img.main-img {
+    width: 130%;
+  }
+
+  div#main-container.display-info > div.card:nth-child(3) > img.main-img {
+    width: 160%;
   }
 
   div#main-container > section#info {
