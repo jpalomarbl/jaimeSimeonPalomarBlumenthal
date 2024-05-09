@@ -628,7 +628,7 @@ div#glass-container-inside > div.glass {
   /* CONTAINER ELEMENTS (NOT "display-info") */
   div#main-container > div.card,
   div#main-container.display-info > div.card {
-    height: 6vh;
+    height: 8vh;
     width: 29%;
 
     padding: 0.5rem;
