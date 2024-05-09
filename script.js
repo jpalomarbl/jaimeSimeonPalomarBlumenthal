@@ -55,7 +55,7 @@ function mobileDesktopToggleSettings() {
 }
 
 function unableVanillaTilt() {
-  if (window.innerWidth < mobileResolutionLimit) {
+  if (window.innerWidth <= mobileResolutionLimit) {
     cardArray.forEach((card) => {
       card.vanillaTilt.destroy();
     });
@@ -67,7 +67,7 @@ function unableVanillaTilt() {
 }
 
 function changeTexts() {
-  if (window.innerWidth < mobileResolutionLimit) {
+  if (window.innerWidth <= mobileResolutionLimit) {
     cardHeaders[0].innerText = "Pros";
     cardHeaders[1].innerText = "Tools";
     cardHeaders[2].innerText = "Studies";
