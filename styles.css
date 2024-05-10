@@ -858,7 +858,7 @@ div#glass-container-inside > div.glass {
   }
 }
 
-@-webkit-keyframes open-title {
+/* @-webkit-keyframes open-title {
   0% {
     height: 0vh;
     width: 0vw;
@@ -937,7 +937,7 @@ div#glass-container-inside > div.glass {
     border-top: 0px;
     border-bottom: 0px;
   }
-}
+} */
 
 @-webkit-keyframes close-title {
   0% {
@@ -976,7 +976,7 @@ div#glass-container-inside > div.glass {
   }
 }
 
-@-webkit-keyframes appear-card-1 {
+/* @-webkit-keyframes appear-card-1 {
   0% {
     opacity: 0;
   }
@@ -1016,7 +1016,7 @@ div#glass-container-inside > div.glass {
   100% {
     opacity: 1;
   }
-}
+} */
 
 @-webkit-keyframes border-color {
   0%,
