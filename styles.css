@@ -303,7 +303,7 @@ div#main-container > section#info > div.text > p {
   margin: 1rem;
 }
 
-div#main-container > section#info > div.img-card > img {
+div#main-container > section#info > div.img-card img {
   width: 80%;
 
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
