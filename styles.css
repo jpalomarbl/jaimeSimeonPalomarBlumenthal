@@ -610,12 +610,12 @@ div#glass-container-inside > div.glass {
   }
 
     /* MOBILE Adjunstments*/
-    body.mobile div#main-container > section#info > div.text > p {
+    div#main-container > section#info > div.text > p {
       font-size: .8rem;
       line-height: .8rem;
     }
 
-    body.mobile div#main-container > section#info > div.contact {
+    div#main-container > section#info > div.contact {
       font-size: .8rem;
 
       padding-block: 10px;
