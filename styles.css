@@ -608,6 +608,18 @@ div#glass-container-inside > div.glass {
 
     height: fit-content;
   }
+
+    /* MOBILE Adjunstments*/
+    body.mobile div#main-container > section#info > div.text > p {
+      font-size: .8rem;
+      line-height: .8rem;
+    }
+
+    body.mobile div#main-container > section#info > div.contact {
+      font-size: .8rem;
+
+      padding-block: 10px;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -646,11 +658,6 @@ div#glass-container-inside > div.glass {
     width: 160%;
   }
 
-  /* div#main-container > div.card > h2 {
-    font-size: 1.3rem;
-
-    top: 60%;
-  } */
 
   div#main-container > div.card > img.down-arrow {
     width: 3.5vw;
@@ -697,7 +704,7 @@ div#glass-container-inside > div.glass {
   }
 
   div#main-container > section#info > div.img-card > img {
-    width: 60%;
+    width: 50%;
   }
 
   div#main-container > section#info > div.contact {

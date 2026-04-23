@@ -1,6 +1,6 @@
 // ELEMENT SELECTORS
 const glassContainerOutside = document.getElementById(
-  "glass-container-outside"
+  "glass-container-outside",
 );
 const glassContainerInside = document.getElementById("glass-container-inside");
 const mainContainer = document.getElementById("main-container");
@@ -13,10 +13,10 @@ const cardArray = [pros, tools, studies];
 const notInitials = document.querySelectorAll("h1:not(.initials)");
 const initials = document.querySelector("h1.initials");
 const infoParagraphs = document.querySelectorAll(
-  "div#main-container > section#info > div.text > p"
+  "div#main-container > section#info > div.text > p",
 );
 const cardHeaders = document.querySelectorAll(
-  "div#main-container > div.card > h2"
+  "div#main-container > div.card > h2",
 );
 const contactLink = document.getElementById("contact");
 
@@ -98,7 +98,7 @@ function glasssGenerator() {
     glassContainerOutside.offsetHeight,
     document.documentElement.offsetHeight,
     glassContainerOutside.clientHeight,
-    document.documentElement.clientHeight
+    document.documentElement.clientHeight,
   );
 
   for (let i = 0; i < 50; i++) {
@@ -114,7 +114,7 @@ function glasssGenerator() {
 
     glass.style.setProperty(
       "--random-angle",
-      360 - Math.floor(Math.random() * 360) + "deg"
+      360 - Math.floor(Math.random() * 360) + "deg",
     );
 
     if (Math.floor(Math.random() * 10) % 2 === 0) {
@@ -146,10 +146,10 @@ cardArray.forEach((card, index) => {
         mainContainer.classList.add("timeOut-css");
         titleContainer.classList.add("timeOut-css");
 
-        notInitials.forEach((notInitial) => {
-          notInitial.style = "display: none;";
-        });
-        initials.style = "display: block;";
+        // notInitials.forEach((notInitial) => {
+        //   notInitial.style = "display: none;";
+        // });
+        // initials.style = "display: block;";
       }, 2800);
     } else {
       mainContainer.classList.add("timeOut-css");
@@ -160,4 +160,6 @@ cardArray.forEach((card, index) => {
   });
 });
 
-window.addEventListener("resize", changeTexts);
+window.addEventListener("resize", () => {
+  changeTexts();
+});
